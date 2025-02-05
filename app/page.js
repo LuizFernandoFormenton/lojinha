@@ -1,4 +1,5 @@
 'use client'
+import { Cairo } from "next/font/google";
 import { useState } from "react";
 
 function Home() {
@@ -10,7 +11,7 @@ function Home() {
 
     function manipulaCarrinho(adicionar){
 
-      const novoCarrinho = carrinho;
+      let novoCarrinho = carrinho;
 
       if (adicionar == true){
         alteraCarrinho(carrinho + 1)
@@ -39,7 +40,15 @@ function Home() {
 
         <h1 className="bg-sky-500 text-white p-3" > Lojinha do Luiz </h1>
         <p className="p-3 text-lg" > Carrinho: <strong> {carrinho} </strong> itens </p>
-        <button onClick={()=>limpaCarrinho()} className="bg-yellow-400 text-black mt-5 p-3 mb-5" > Limpar </button>
+        
+        {
+                carrinho > 0 ?
+                   <div>
+                        <button onClick={()=>limpaCarrinho()} className="bg-yellow-400 text-black mt-5 p-3 mb-5" > Limpar </button>
+                   </div>
+                :
+                <div></div>   
+            }
         <button onClick={()=>aplicaCupom()} className="bg-black text-white ml-5 mt-5 p-3 mb-5" > Adicionar cupom </button>
 
         <hr/>
@@ -54,12 +63,31 @@ function Home() {
           <img className="" src="https://placehold.co/200/" />
           <h3 className="text-lg text-lime-200 font-bold" > Produto modelo </h3>
           <p> R${preco},00 </p>
+
+
+
+          {
+                carrinho > 0 ?
+                   <div>
+                       <button  onClick={()=>manipulaCarrinho(false)} className="bg-red-400 text-black mt-5 p-3"> Remover do carrinho </button> 
+                   </div>
+                :
+                <div></div>   
+            }
+
+
+
+
+
+          
           <button  onClick={()=>manipulaCarrinho(true)} className="bg-lime-400 text-black mt-5 p-3"> Adicionar ao carrinho  </button>
           <br/>
-          <button  onClick={()=>manipulaCarrinho(false)} className="bg-red-400 text-black mt-5 p-3"> Remover do carrinho </button> 
+          
 
 
         </div>
+
+        
 
 
       </div>
