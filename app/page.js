@@ -4,13 +4,13 @@ import { useState } from "react";
 function Home() {
 
     // aqui entra o js
-    let [carrinho, alteraCarrinho ] = useState(0);
-    let [ preco, adicionarCupom ] = useState(25);
-    let [ valorTotal, alteraValorTotal ] = useState(0);
+    const [carrinho, alteraCarrinho ] = useState(0);
+    const [ preco, adicionarCupom ] = useState(25);
+    const [ valorTotal, alteraValorTotal ] = useState(0);
 
     function manipulaCarrinho(adicionar){
 
-      let novoCarrinho = carrinho;
+      const novoCarrinho = carrinho;
 
       if (adicionar == true){
         alteraCarrinho(carrinho + 1)
