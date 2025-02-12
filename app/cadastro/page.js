@@ -39,7 +39,7 @@ function Cadastro() {
             <hr/>
 
             <p> Digite seu nome </p>
-            <input onChange={(e)=> alteraNome(e.target.value) } value={nome} className="outline" /> 
+            <input className="outline" /> 
 
             <br/>
 
