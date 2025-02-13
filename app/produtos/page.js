@@ -4,7 +4,17 @@ import Cadastro from "../cadastro/page";
 
 function Produtos() {
 
-        const [produto, alteraProduto] = useState({});
+        // const [produto, alteraProduto] = useState({});
+        const [produtos, alteraProdutos] = useState([{
+                nome: "Picanha",
+                preco: "39.99",
+                quantidade: 60,
+            },{
+                nome: "Mostarda",
+                preco: "12.99",
+                quantidade: 10,
+                
+        }]);
 
 
         const [mostraListagem, alteraMostraListagem ] = useState(false)
@@ -18,7 +28,7 @@ function Produtos() {
         function alteraExibicao(tela){
             if(tela == "cadastro"){
                 alteraMostraCadastro(true);
-                alteraMostraListagem(false);
+                alteraMostraListagem(true);
             
             }
 
@@ -38,7 +48,7 @@ function Produtos() {
                 data: Date()
             }
 
-            alteraProduto(objeto)
+            alteraProdutos([...produtos, objeto])
 
         }
     
@@ -104,9 +114,7 @@ function Produtos() {
                             <h2 className="font-bold mb-5" > Listagem de Produtos </h2>
 
                             <ul>
-                                <li>{produto.nome} - R$ {produto.preco} - {produto.quantidade} itens </li>
-                                <li>Produto2</li>
-                                <li>Produto3</li>
+                                {produtos.map( (i)=> <li>{i.nome} - R$ {i.preco} - {i.quantidade} itens </li>  )}
                             </ul>
 
 

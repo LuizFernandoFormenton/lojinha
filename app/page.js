@@ -9,6 +9,10 @@ function Home() {
     const [ preco, adicionarCupom ] = useState(25);
     const [ valorTotal, alteraValorTotal ] = useState(0);
 
+    const [ tamanhos, alteraTamanhos ] = useState(["P", "M", "G", "GG"]);
+    const [ cores, alteraCores ] = useState(["Preto", "Amarelo", "Azul"]);
+    const [ entregas, alteraEntregas ] = useState(["PAC", "Sedex", "Retirada"]);
+
     function manipulaCarrinho(adicionar){
 
       let novoCarrinho = carrinho;
@@ -61,7 +65,20 @@ function Home() {
 
         <div className="border bg-sky-700 w-fit text-center text-white p-2" >
           <img className="" src="https://placehold.co/200/" />
-          <h3 className="text-lg text-lime-200 font-bold" > Produto modelo </h3>
+          
+          
+          <p> Tamanhos: {tamanhos.map( (i)=> <span> {i}, </span> )} </p>
+
+          <p> Cores: </p>
+
+          <ul>
+            {cores.map ((i)=> <li className="border" > {i} </li> )}
+            
+          </ul>
+
+          <p> Entrega: <br/> {entregas.map( (i)=> <span> <button className="bg-cyan-400 text-black mb-5 mt-3 p-3 ml-3 mr-3" >  {i}  </button> </span> )} </p>
+          
+            <h3 className="text-lg text-lime-200 font-bold" > Produto modelo </h3>
           <p> R${preco},00 </p>
 
 
